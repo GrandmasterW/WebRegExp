@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>My little RegExp experiment</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+	background-color: white;
+    }
+    .rtable {
+	width: 60%;
+	border: 1px solid;
+	border-collapse: collapse;
+    }
+    .rtable th {
+	border: 2px solid;
+	ha
+    }
+    .rtable tr,td {
+	border: 1px solid;
+    }
+    .itable {
+	width: 60%;
+	border: 0px;
+	border-collapse: collapse;
+    }
+    /* paragraphs */
+    #result {
+	width: 60%;
+	background-color: lightgray;
+	border: 1px solid; 
+    }
+    #btn {
+	width: 60%;
+	text-align: center; 
+    }
+  </style>
+  <title>My little RegExp experiment</title>
 </head>
-<body>
 
-  <table>
+<body background-color="white">
+<h1>Input area</h1>
+  <table class="itable">
     <tr>
       <td>	<label for="intext">Enter text at your own risk: </label> </td>
       <td> 	<textarea id="intext" rows="5" cols="70">Here we go...</textarea> </td>
@@ -28,10 +61,17 @@
     </tr>
   </table>
 
-  <button type="button" onclick='process()'>RegExp me!</button>
+  <p id="btn">
+    <button type="button" onclick='process()'>RegExp me!</button>
+  </p>
+  <h1>Output area</h1>
+  <p id="result">nothing yet</p>
+  <br/>
 
+  <h1>Log</h1>
   <p id="otext">...</p>
 
+  <script src="myHelpers.js"></script>
   <script src="myRe.js"></script>
 </body>
 </html>
