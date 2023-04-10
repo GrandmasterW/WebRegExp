@@ -1,0 +1,35 @@
+/*
+   simple styles for a simple app
+   */
+body {
+    background-color: white;
+}
+
+.rtable {
+    width: 60%;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.rtable th {
+    border: 2px solid;
+    ha
+}
+
+.rtable tr,
+td {
+    border: 1px solid;
+}
+
+.itable {
+    width: 60%;
+    border: 0px;
+    border-collapse: collapse;
+}
+
+/* paragraphs */
+
+#btn {
+    width: 60%;
+    text-align: center;
+}

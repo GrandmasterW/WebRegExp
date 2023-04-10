@@ -1,5 +1,5 @@
 /**
- * 
+ * Main processing stuff for dealing with regexp in JS and setting results into the web page
  */
 
 "use strict";
@@ -8,10 +8,8 @@ const intext = "intext";
 const stext = "stext";
 const modif = "mod";
 const rtext = "rtext";
-const restxt= "result";
+const restxt= "resultarea";
 const otext = "otext";
-const osep  = " | ";
-const headerRow = "<th>i</th> <th>input</th> <th>search</th> <th>modifier</th> <th>replace</th> <th>result</th>";
 
 // a global variable - no other way? 
 let outarr = [];
@@ -20,30 +18,6 @@ let outarr = [];
 /*
   specific helpers
 */
-
-/*
-  converts one logarr entry to a string of <td>x</td> strings, concatenated with blank
-*/
-function oneRow(value,index,array) {
-    // each element of the output array is an array itself
-    return makeTr(
-	makeTd(
-	    (array.length-index).toString())
-	    + value.map(makeTd).join(" "));
-}
-
-/*
-  prints the whole log array as a table of rows
-*/
-function printAll(myarr) {
-    const revOmt = myarr.reverse();
-    const omt = makeTable(
-	revOmt.map(oneRow).join("\n"), // without explicit join, JS will use a comma
-	"rtable", // style 
-	headerRow); //first row 
-    log(omt);
-    htmlOutput(otext,omt);
-}
 
 /*
   applies the regexp to the string
@@ -61,19 +35,22 @@ function convert(tIn, tSearch, tMod, tRepl) {
   3. log to outputs
 */
 function process() {
-	const tinput 	= getValue(intext);
-	const tsearch 	= getValue(stext);
-	const tmodifier = getValue(modif);
-	const treplace  = getValue(rtext);
-	const result 	= convert(tinput, tsearch, tmodifier, treplace);
-	const logarr 	= [tinput, tsearch, tmodifier, treplace, result];
+    const tinput    = getValue(intext);
+    const tsearch   = getValue(stext);
+    const tmodifier = getValue(modif);
+    const treplace  = getValue(rtext);
+    const result    = convert(tinput, tsearch, tmodifier, treplace);
+    const logarr    = [tinput, tsearch, tmodifier, treplace, result];
 
-    htmlOutput(restxt, result);
-    outarr.push(logarr);
-    printAll(outarr);
+    outarr.push(logarr); // not in a functional style here...
+    
+    // only output from here 
+    setValue(restxt, result); // display single value in textarea
+    log(outarr);
+    htmlOutput(otext, arrToTable(outarr.reverse()));
 }
 /*
- * Main
+ * Main if any after this one
  */
  
 
