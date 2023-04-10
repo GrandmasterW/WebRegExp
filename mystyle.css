@@ -5,30 +5,39 @@ body {
     background-color: white;
 }
 
+#itable
+{
+    width: 80%;
+}
+
+#itable tr,
+#itable td
+{
+    border: 0;
+}
+
 .rtable {
-    width: 60%;
+    width: 80%;
     border: 1px solid;
     border-collapse: collapse;
 }
 
 .rtable th {
     border: 2px solid;
-    ha
 }
 
-.rtable tr,
-td {
+.rtable tr, td {
     border: 1px solid;
 }
 
-.itable {
-    width: 60%;
-    border: 0px;
-    border-collapse: collapse;
+/*
+table.itable {
+    width: 80%;
+    border-style: none;
+    border: 0px; 
+    background-color: lightyellow; 
 }
-
-/* paragraphs */
-
+*/
 #btn {
     width: 60%;
     text-align: center;
