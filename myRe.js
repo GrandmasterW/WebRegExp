@@ -6,7 +6,11 @@
 
 const intext = "intext";
 const stext = "stext";
-const modif = "mod";
+
+const global = "global";
+const ignorecase = "ignorecase";
+const multiple = "multiple";
+
 const rtext = "rtext";
 const restxt= "resultarea";
 const otext = "otext";
@@ -37,7 +41,10 @@ function convert(tIn, tSearch, tMod, tRepl) {
 function process() {
     const tinput    = getValue(intext);
     const tsearch   = getValue(stext);
-    const tmodifier = getValue(modif);
+    const tglobal   = getValue(global);
+    const tignore   = getValue(ignorecase);
+    const tmultiple = getValue(multiple);
+    const tmodifier = tglobal + tignore + tmultiple; 
     const treplace  = getValue(rtext);
     const result    = convert(tinput, tsearch, tmodifier, treplace);
     const logarr    = [tinput, tsearch, tmodifier, treplace, result];
