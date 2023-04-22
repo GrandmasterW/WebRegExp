@@ -9,7 +9,7 @@ const stext = "stext";
 
 const global = "global";
 const ignorecase = "ignorecase";
-const multiple = "multiple";
+const multiline  = "multiline";
 
 const rtext = "rtext";
 const restxt= "resultarea";
@@ -41,12 +41,15 @@ function convert(tIn, tSearch, tMod, tRepl) {
 function process() {
     const tinput    = getValue(intext);
     const tsearch   = getValue(stext);
-    const tglobal   = getValue(global);
-    const tignore   = getValue(ignorecase);
-    const tmultiple = getValue(multiple);
-    const tmodifier = tglobal + tignore + tmultiple; 
+
+    const tglobal   = getCBValue(global);
+    const tignore   = getCBValue(ignorecase);
+    const tmultiline= getCBValue(multiline);
+
+    const tmodifier = tglobal + tignore + tmultiline; 
     const treplace  = getValue(rtext);
     const result    = convert(tinput, tsearch, tmodifier, treplace);
+
     const logarr    = [tinput, tsearch, tmodifier, treplace, result];
 
     outarr.push(logarr); // not in a functional style here...

@@ -7,6 +7,7 @@
 /* 
  * helpers
  */
+const EMPTY_STRING = "";
 
 function arrayFirst(arr) {
     return arr.slice(0,1);
@@ -34,6 +35,19 @@ function getValue(element) {
 
 function setValue(element, v) {
 	document.getElementById(element).value = v;
+}
+
+/*
+  returns the checkbox value, if checked, "" if not checked.
+  */
+function getCBValue(element) {
+    const value = document.getElementById(element).value;
+    const checked = document.getElementById(element).checked;
+
+    if (checked) {
+	return value; 
+    }
+    return EMPTY_STRING; 
 }
 
 function htmlOutput(outelem, s) {
